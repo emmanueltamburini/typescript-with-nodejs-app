@@ -1,0 +1,33 @@
+{
+  "name": "11-typescript-with-nodejs-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "scripts": {
+    "start": "node dist/app",
+    "compile": "tsc",
+    "dev": "nodemon dist/app",
+    "debug": "nodemon --inspect dist/app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmanueltamburini/typescript-with-nodejs-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmanueltamburini/typescript-with-nodejs-app/issues"
+  },
+  "homepage": "https://github.com/emmanueltamburini/typescript-with-nodejs-app#readme",
+  "devDependencies": {
+    "tslint": "^6.1.3"
+  },
+  "dependencies": {
+    "typescript": "^4.9.4"
+  }
+}
