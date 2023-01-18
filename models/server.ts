@@ -3,6 +3,8 @@ import cors from 'cors'
 
 import { LOCAL_PUBLIC_FOLDER_PATH, USER_PATH } from '../constants/routes.constant';
 import userRouter from '../routes/user.routes';
+import db from '../db/connection';
+import { CORRECT_CREDENTIALS_DB, DB_CONNECTED } from '../constants/messages.constant';
 
 export default class Server {
 
@@ -16,6 +18,7 @@ export default class Server {
         this.app = express();
         this.port = process.env.PORT || '8000';
 
+        this.dbConnection();
         this.middleware();
         this.routes();
     }
@@ -26,6 +29,16 @@ export default class Server {
         this.app.use(express.json());
 
         this.app.use(express.static(LOCAL_PUBLIC_FOLDER_PATH))        
+    }
+
+    public async dbConnection () {
+        try { 
+            if (!db) throw new Error(CORRECT_CREDENTIALS_DB);
+            await db.authenticate();
+            console.log(DB_CONNECTED);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     public routes(): void {

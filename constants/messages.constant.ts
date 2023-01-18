@@ -1,9 +1,11 @@
 import { capitalize } from '../helpers/utils';
 
+export const CORRECT_CREDENTIALS_DB = 'You must give correct credentials to db';
+export const DB_CONNECTED = 'Data base has connected';
+
 export const INVALID_USER = 'Invalid username or password';
 export const SOMETHING_WENT_WRONG = 'Something went wrong, please contact admin';
 export const TRYING_CONNECT_DB = 'Trying to connect to bd';
-export const DB_CONNECTED = 'Data base has connected';
 export const SOMETHING_WENT_WRONG_DB = 'There was a problem in data base connection';
 export const SOMETHING_WENT_WRONG_ = 'Something went wrong in generating JWT';
 export const TOKEN_INVALID = 'x-token is not valid';
