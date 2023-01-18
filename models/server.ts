@@ -4,7 +4,7 @@ import cors from 'cors'
 import { LOCAL_PUBLIC_FOLDER_PATH, USER_PATH } from '../constants/routes.constant';
 import userRouter from '../routes/user.routes';
 import db from '../db/connection';
-import { CORRECT_CREDENTIALS_DB, DB_CONNECTED } from '../constants/messages.constant';
+import { CORRECT_CREDENTIALS_DB, DB_CONNECTED, TRYING_CONNECT_DB } from '../constants/messages.constant';
 
 export default class Server {
 
@@ -32,7 +32,8 @@ export default class Server {
     }
 
     public async dbConnection () {
-        try { 
+        try {
+            console.log(TRYING_CONNECT_DB);
             if (!db) throw new Error(CORRECT_CREDENTIALS_DB);
             await db.authenticate();
             console.log(DB_CONNECTED);
@@ -47,7 +48,7 @@ export default class Server {
 
     public listen(): void {
         this.app.listen(this.port, () => {
-            console.log('Server is running in port: ', this.port);
+            console.log('Server is running in port:', this.port);
         })
     }
 }

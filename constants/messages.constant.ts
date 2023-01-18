@@ -1,15 +1,16 @@
 import { capitalize } from '../helpers/utils';
 
 export const CORRECT_CREDENTIALS_DB = 'You must give correct credentials to db';
+export const TRYING_CONNECT_DB = 'Trying to connect to bd';
 export const DB_CONNECTED = 'Data base has connected';
+export const SOMETHING_WENT_WRONG = 'Something went wrong, please contact admin';
 
 export const SERVER_RUNNING = (port:string) =>  `Server is running in port ${port}`;
 export const ELEMENT_ID_DOES_NOT_EXIST= (id:string, element:string) => `${capitalize(element)} with id ${id} does not exist`;
-
+export const ELEMENT_TAKEN = (name:string, element:string) => `${capitalize(element)} ${name} is already taken`;
+export const ELEMENT_NOT_FOUND = (name:string, element:string) => `${capitalize(element)} '${name}' is not found`;
 
 export const INVALID_USER = 'Invalid username or password';
-export const SOMETHING_WENT_WRONG = 'Something went wrong, please contact admin';
-export const TRYING_CONNECT_DB = 'Trying to connect to bd';
 export const SOMETHING_WENT_WRONG_DB = 'There was a problem in data base connection';
 export const SOMETHING_WENT_WRONG_ = 'Something went wrong in generating JWT';
 export const TOKEN_INVALID = 'x-token is not valid';
@@ -25,5 +26,3 @@ export const MUST_BE_BOOLEAN = (field = '') => `${capitalize(field)} must be boo
 export const MUST_BE_STRING = (field = '') => `${capitalize(field)} must be string field`;
 export const MUST_HAVE_RIGHT_FORMAT = (field = '') => `${capitalize(field)} must have right format`;
 export const NOT_PERMISSION_TO_THIS = (name = '') => `${name} has not permission to do this`;
-export const ELEMENT_TAKEN = (name:string, element:string) => `${capitalize(element)} ${name} is already taken`;
-export const ELEMENT_NOT_FOUND = (name:string, element:string) => `${capitalize(element)} '${name}' is not found`;
