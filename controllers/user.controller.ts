@@ -1,16 +1,38 @@
 import { Request, Response } from "express";
+import User from "../db/user";
+import { ELEMENT_ID_DOES_NOT_EXIST } from "../constants/messages.constant";
+import { USER } from "../constants/paramsQueries.constant";
 
-export const getUsers = (req: Request, res: Response) => {
+export const getUsers = async (req: Request, res: Response) => {
+    const users = await User?.findAll({
+        where: {
+            status: true
+        }
+      });
+
     res.json({
-        msg: 'getUsers'
+        users
     });
 }
 
-export const getUser = (req: Request, res: Response) => {
+export const getUser = async (req: Request, res: Response) => {
     const { id } = req.params; 
+
+    const user = await User?.findOne({
+        where: {
+            id,
+            status: true
+        }
+    });
+
+    if (!user) {
+        return res.status(404).json({
+            msg: ELEMENT_ID_DOES_NOT_EXIST(id, USER)
+        });
+    }
+
     res.json({
-        id,
-        msg: 'getUser'
+        user
     });
 }
 

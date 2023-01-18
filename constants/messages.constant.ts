@@ -3,6 +3,10 @@ import { capitalize } from '../helpers/utils';
 export const CORRECT_CREDENTIALS_DB = 'You must give correct credentials to db';
 export const DB_CONNECTED = 'Data base has connected';
 
+export const SERVER_RUNNING = (port:string) =>  `Server is running in port ${port}`;
+export const ELEMENT_ID_DOES_NOT_EXIST= (id:string, element:string) => `${capitalize(element)} with id ${id} does not exist`;
+
+
 export const INVALID_USER = 'Invalid username or password';
 export const SOMETHING_WENT_WRONG = 'Something went wrong, please contact admin';
 export const TRYING_CONNECT_DB = 'Trying to connect to bd';
@@ -13,7 +17,6 @@ export const TOKEN_INVALID_USER_NOT_FOUND = 'x-token is not valid - user does no
 export const USER_UNAUTHORIZE = 'User is unauthorize, please talk with the admin';
 
 export const ELEMENT_IS_NOT_AVAILABLE = (element:string) => `${capitalize(element)} is not available`;;
-export const SERVER_RUNNING = (port:string) =>  `Server is running in port ${port}`;
 export const IS_REQUIRED = (field = '') => `${capitalize(field)} is required`;
 export const IS_INVALID = (field = '') => `${capitalize(field)} is invalid`;
 export const MUST_HAVE_MORE = (field = '', moreThan = 0) => `${capitalize(field)} must have more than ${moreThan} characters`;
@@ -22,6 +25,5 @@ export const MUST_BE_BOOLEAN = (field = '') => `${capitalize(field)} must be boo
 export const MUST_BE_STRING = (field = '') => `${capitalize(field)} must be string field`;
 export const MUST_HAVE_RIGHT_FORMAT = (field = '') => `${capitalize(field)} must have right format`;
 export const NOT_PERMISSION_TO_THIS = (name = '') => `${name} has not permission to do this`;
-export const ELEMENT_ID_DOES_NOT_EXIST= (id:string, element:string) => `${capitalize(element)} with id ${id} does not exist`;
 export const ELEMENT_TAKEN = (name:string, element:string) => `${capitalize(element)} ${name} is already taken`;
 export const ELEMENT_NOT_FOUND = (name:string, element:string) => `${capitalize(element)} '${name}' is not found`;
