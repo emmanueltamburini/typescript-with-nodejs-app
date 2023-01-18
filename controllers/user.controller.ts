@@ -107,12 +107,35 @@ export const putUser = async (req: Request, res: Response) => {
     }
 }
 
-export const deleteUser = (req: Request, res: Response) => {
+export const deleteUser = async (req: Request, res: Response) => {
     const { id } = req.params; 
 
+    try {
+        const user = await User?.findOne({
+            where: {
+                id,
+                status: true            
+            }
+        });
 
-    return res.json({
-        id,
-        msg: 'deleteUser'
-    });
+        if(!user) {
+            return res.status(400).json({
+                msg: ELEMENT_NOT_FOUND(id, USER)
+            });
+        }
+
+
+        /*await User?.destroy();*/
+
+        await user.update({status: false});
+
+        return res.json({
+            user
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            msg: SOMETHING_WENT_WRONG
+        });
+    }
 }
